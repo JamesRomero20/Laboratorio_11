@@ -3,15 +3,15 @@ name: Run JMeter Tests
 on: [push, pull_request]
 
 jobs:
-jmeter:
-runs-on: ubuntu-latest
+  jmeter:
+    runs-on: ubuntu-latest
 
-steps:
-name: Checkout code
-uses: actions/checkout@v2
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
 	
-name: Install JMeter
-run: sudo apt-get update && sudo apt-get install -y jmeter
+    - name: Install JMeter
+       run: sudo apt-get update && sudo apt-get install -y jmeter
 	
-name: Run JMeter tests
-run: jmeter -n -t test-plan.jmx -l results.jtl -e -o results
+    - name: Run JMeter tests
+      run: jmeter -n -t test-plan.jmx -l results.jtl -e -o results
