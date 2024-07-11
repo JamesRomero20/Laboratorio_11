@@ -1,0 +1,17 @@
+name: Run JMeter Tests
+43.	
+44.	on: [push, pull_request]
+45.	
+46.	jobs:
+47.	  jmeter:
+48.	    runs-on: ubuntu-latest
+49.	
+50.	    steps:
+51.	    - name: Checkout code
+52.	      uses: actions/checkout@v2
+53.	
+54.	    - name: Install JMeter
+55.	      run: sudo apt-get update && sudo apt-get install -y jmeter
+56.	
+57.	    - name: Run JMeter tests
+58.	      run: jmeter -n -t test-plan.jmx -l results.jtl -e -o results
