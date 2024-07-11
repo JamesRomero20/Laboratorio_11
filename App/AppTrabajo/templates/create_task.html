@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Crear Tarea</h1>
+
+{{error}}
+<form action="/create_task/" method="POST">
+  
+  {% csrf_token %}
+  {{form}}
+  <button>Guardar</button>
+</form>
+
+<form action="/capture_video/" method="POST">
+    {% csrf_token %}
+    <button >Iniciar captura de animo</button>
+</form>
+{% endblock %}
