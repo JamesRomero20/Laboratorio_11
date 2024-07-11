@@ -44,7 +44,7 @@ def capture_video_with_vision(request):
 
              for (sx, sy, sw, sh) in smiles:
                 cv2.rectangle(roi_color, (sx, sy), (sx+sw, sy+sh), (255, 0, 0), 2)
-                cv2.putText(frame, 'Estado feliz', (x, y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
+                cv2.putText(frame, 'Estado contento', (x, y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
 
 
         if video_observable.notify(frame) or stop_flag:
