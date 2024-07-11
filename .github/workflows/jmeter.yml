@@ -9,9 +9,10 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-	
+
     - name: Install JMeter
-       run: sudo apt-get update && sudo apt-get install -y jmeter
-	
+      run: sudo apt-get update && sudo apt-get install -y jmeter
+
     - name: Run JMeter tests
       run: jmeter -n -t test-plan.jmx -l results.jtl -e -o results
+
