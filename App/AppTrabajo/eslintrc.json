@@ -1,0 +1,33 @@
+{
+  "2.": null,
+  "env": {
+    "3.": null,
+    "browser": true,
+    "4.": null,
+    "es2021": true,
+    "5."
+  },
+  "6.": null,
+  "extends": "eslint:recommended",
+  "7.": null,
+  "parserOptions": {
+    "8.": null,
+    "ecmaVersion": 12,
+    "9.": null,
+    "sourceType": "module",
+    "10."
+  },
+  "11.": null,
+  "rules": {
+    "12.": null,
+    "indent": [ "error", 2 ],
+    "13.": null,
+    "linebreak-style": [ "error", "unix" ],
+    "14.": null,
+    "quotes": [ "error", "double" ],
+    "15.": null,
+    "semi": [ "error", "always" ],
+    "16."
+  },
+  "17."
+}
