@@ -12,3 +12,5 @@ for shift in range(1,26):
       plaintext += char
 
   print("Numero de salto %s, el mensaje descifrado es: %s" % (shift, plaintext))
+
+  # Se corrige el codigo 

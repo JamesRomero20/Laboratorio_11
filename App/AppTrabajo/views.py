@@ -11,6 +11,8 @@ from .video_observer import VideoObservable, VideoViewer
 import cv2
 import threading
 
+
+
         
 def capture_video_with_vision(request):
     face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
