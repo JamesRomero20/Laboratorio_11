@@ -16,10 +16,5 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Run Fossology License Check
-        run: |
-          docker run --rm \
-          -v $(pwd):/fossology/input \
-          -v $(pwd)/fossology_output:/fossology/output \
-          fossology/fossology:latest \
-          fossology --input /fossology/input --output /fossology/output --all
+      - name: License compliance check
+        uses: mikaelvesavuori/license-compliance-action@v1
