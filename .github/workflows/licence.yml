@@ -1,4 +1,4 @@
-name: License
+name: License 
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -23,29 +23,19 @@ jobs:
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then 
-            pip install -r requirements.txt 
-          fi
+          pip install poetry
+          poetry install --no-root
 
       - name: Run License Compliance Check
-        uses: awsome-license-compliance/license-compliance-action@v1
+        uses: fjogeleit/license-checker-action@v2
         with:
-          allow-licenses: |
-            MIT
-            Apache-2.0
-            BSD-3-Clause
-            BSD-2-Clause
-          fail-on: error
-          exclude-packages: |
-            some-package-name
-
-      - name: Report License Summary
-        if: always()
-        run: cat license-compliance-report.json
+          path: '.'
+          outputFormat: 'json'
+          failOn: 'error'
 
       - name: Upload License Report
         if: always()
         uses: actions/upload-artifact@v3
         with:
           name: license-compliance-report
-          path: license-compliance-report.json
+          path: license-checker-report.json
