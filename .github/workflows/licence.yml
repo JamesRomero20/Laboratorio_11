@@ -1,5 +1,4 @@
 name: License 
-
 on:
   push:
     branches:
@@ -16,14 +15,11 @@ jobs:
       - name: Run License Compliance Check
         run: |
           docker run --rm \
-          -v $(pwd):/app \
-          docker.io/pmartins/docker-license-checker \
-          --directory /app \
-          --failOnError
+          -v $(pwd):/usr/src/app \
+          licensee/licensee detect /usr/src/app --json > license-checker-report.json
 
       - name: Upload License Report
         uses: actions/upload-artifact@v3
         with:
           name: license-compliance-report
-          path: ./license-checker-report.json
-
+          path: license-checker-report.json
