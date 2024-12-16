@@ -16,5 +16,10 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Run Ortoo License Check
-        uses: ortoo/license-check@v1
+      - name: Run Fossology License Check
+        run: |
+          docker run --rm \
+          -v $(pwd):/fossology/input \
+          -v $(pwd)/fossology_output:/fossology/output \
+          fossology/fossology:latest \
+          fossology --input /fossology/input --output /fossology/output --all
