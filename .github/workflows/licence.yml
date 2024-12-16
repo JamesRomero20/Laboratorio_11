@@ -27,15 +27,14 @@ jobs:
           poetry install --no-root
 
       - name: Run License Compliance Check
-        uses: fjogeleit/license-checker-action@v2
+        uses: dhatim/pip-licenses-action@v1
         with:
-          path: '.'
-          outputFormat: 'json'
-          failOn: 'error'
+          output_file: license-report.csv
+          output_format: csv
 
       - name: Upload License Report
         if: always()
         uses: actions/upload-artifact@v3
         with:
           name: license-compliance-report
-          path: license-checker-report.json
+          path: license-report.csv
