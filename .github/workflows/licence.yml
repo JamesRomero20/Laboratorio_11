@@ -1,8 +1,10 @@
-name: License
+name: License 
 
 on:
   push:
     branches:
+      - main
+      - 'release/*'
       - master
   pull_request:
 
@@ -14,7 +16,5 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Run ClearlyDefined Check
-        uses: clearlydefined/gh-action@main
-
-
+      - name: Run Ortoo License Check
+        uses: ortoo/license-check@v1
