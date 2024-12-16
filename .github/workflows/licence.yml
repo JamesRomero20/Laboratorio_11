@@ -1,4 +1,4 @@
-name: License 
+name: License
 
 on:
   push:
@@ -8,12 +8,21 @@ on:
 
 jobs:
   license-check:
-    name: License Compliance Check
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Verify Repository License
-        uses: actions/licensee-action@v1
+      - name: Run License Compliance Check
+        uses: docker://ghcr.io/fjogeleit/license-checker:latest
+        with:
+          args: >
+            --json ./license-checker-report.json
+            --path .
+            --failOn "error"
+
+      - name: Upload License Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: license-compliance-report
+          path: license-checker-report.json
