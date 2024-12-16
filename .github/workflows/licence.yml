@@ -1,5 +1,4 @@
 name: License
-
 on:
   push:
     branches:
@@ -14,15 +13,5 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run License Compliance Check
-        uses: docker://ghcr.io/fjogeleit/license-checker:latest
-        with:
-          args: >
-            --json ./license-checker-report.json
-            --path .
-            --failOn "error"
+        uses: fsfe/reuse-action@v0.7
 
-      - name: Upload License Report
-        uses: actions/upload-artifact@v3
-        with:
-          name: license-compliance-report
-          path: license-checker-report.json
