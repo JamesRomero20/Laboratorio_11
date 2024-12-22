@@ -26,8 +26,6 @@ jobs:
       fail-fast: false
       matrix:
         include:
-        - language: c-cpp
-          build-mode: autobuild
         - language: javascript-typescript
           build-mode: none
         - language: python
@@ -43,9 +41,7 @@ jobs:
       with:
         languages: ${{ matrix.language }}
         build-mode: ${{ matrix.build-mode }}
-    # to build your code.
-    # ℹ️ Command-line programs to run using the OS shell.
-    # 📚 See https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun
+
     - if: matrix.build-mode == 'manual'
       shell: bash
       run: |
