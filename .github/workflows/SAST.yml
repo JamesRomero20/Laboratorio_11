@@ -1,5 +1,4 @@
-
-name: "SAST"
+name: SAST
 
 on:
   workflow_dispatch:
