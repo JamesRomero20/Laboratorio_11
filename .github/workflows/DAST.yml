@@ -1,12 +1,8 @@
 name: "DAST"
 
 on:
-  push:
-    branches:
-      - main
-      - 'release/*'
-      - master
-  pull_request:
+  workflow_dispatch:
+  workflow_call:
 
 jobs:
   zap_scan:
