@@ -41,7 +41,7 @@ jobs:
   #Análisis y Uso de Licencias.
   license-compliance:
     needs: build
-    name: License Compliance
+    name: License 
     uses: ./.github/workflows/license-compliance.yml
     secrets: inherit
 
