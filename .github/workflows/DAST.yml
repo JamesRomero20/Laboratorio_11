@@ -1,5 +1,13 @@
 name: "DAST"
 
+on:
+  push:
+    branches:
+      - main
+      - 'release/*'
+      - master
+  pull_request:
+    
 jobs:
   zap_scan:
     runs-on: ubuntu-latest
