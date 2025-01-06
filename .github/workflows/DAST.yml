@@ -21,9 +21,6 @@ jobs:
       - name: Start Local Server
         run: |
             python -m venv venv
-            source venv/bin/activate
-            pip install cv2
-            pip install threading
             python manage.py runserver 0.0.0.0:8000 & sleep 10
 
       - name: ZAP Scan
