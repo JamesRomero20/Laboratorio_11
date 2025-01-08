@@ -35,8 +35,13 @@ jobs:
     name: SOOS DAST Analysis
     runs-on: ubuntu-latest
     steps:
-     - name: Start Local Server
-        run:
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11.4
+    
+      - name: Start Local Server
+         run: |
             python -m venv venv
             source venv/bin/activate
             python manage.py runserver 0.0.0.0:8000 & sleep 15
