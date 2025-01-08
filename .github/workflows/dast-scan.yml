@@ -36,7 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - name: Start Local Server
-        run: |
+        run:
             python -m venv venv
             source venv/bin/activate
             python manage.py runserver 0.0.0.0:8000 & sleep 15
