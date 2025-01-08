@@ -1,4 +1,4 @@
-name: "DAST"
+name: DAST
 
 on:
   workflow_dispatch:
