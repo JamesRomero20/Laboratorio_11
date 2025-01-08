@@ -43,7 +43,7 @@ jobs:
       - name: Start Local Server
         run: |
             python -m venv venv
-            source venv/bin/activate
+            Laboratorio_11/Scripts/activate
             python manage.py runserver & sleep 15
       - name: Run SOOS DAST Analysis
         uses: soos-io/soos-dast-github-action@65d9878d77c8993f3db9e86a92bc2ad3a6e060af
