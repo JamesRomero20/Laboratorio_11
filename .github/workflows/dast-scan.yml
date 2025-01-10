@@ -42,7 +42,7 @@ jobs:
     
       - name: Start Local Server
         run: |
-            source venv/bin/activate
+            venv\Scripts\activate.bat
             pip install -r requirements.txt
             python manage.py runserver & sleep 15
 
