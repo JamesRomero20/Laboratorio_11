@@ -28,6 +28,7 @@ jobs:
             pip install -r requirements.txt
       - name: Setup and Run Django
         run: |
+            cd App
             python manage.py migrate
             python manage.py runserver 0.0.0.0:8000 &
         env:
